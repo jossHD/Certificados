@@ -1,0 +1,9 @@
+h4 {
+    color: #4F4F4F;
+    font-weight: 200;
+}
+
+.derecha {
+    display: flex;
+    flex-direction: row-reverse;
+}
