@@ -1,10 +1,9 @@
-<body>
-    <div class="formulario">
-        <div class="titulo">
-            <h2>Nueva Plantilla</h2>
-        </div>
-
-        <div class=" datos bg-white" style="margin-top:30px;">
+<div class="container formulario">
+    <div class="titulo">
+        <h2>Nueva Plantilla</h2>
+    </div>
+    <form name="subida-imagenes" type="POST">
+        <div class="datos container bg-white" style="margin-top:30px;">
             <div class=" nombre mb-3">
                 <label for="nombre" class="form-label textos">Nombre de plantilla:</label>
                 <input type="text" class="cuadro form-control" id="nombre">
@@ -41,27 +40,22 @@
                       </label>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                </div>
-                <div class=" botones col-md-6">
-                    <form name="subida-imagenes" type="POST">
-                        <input type="button" class="btn btn-azul-outline" onclick="history.back()" name="volver" value="Volver" />
-                        <input type="submit" class="btn btn-azul" name="subir-imagen" value="Crear" />
-                    </form>
-                </div>
+            <div class="derecha">
+                <input type="submit" class="btn btn-azul" name="subir-imagen" value="Crear" />
+                <input type="button" class="btn btn-azul-outline" onclick="history.back()" name="volver" value="Volver" />
             </div>
 
         </div>
-    </div>
-    <script type="application/javascript">
-        jQuery('input[type=file]').change(function() {
-            var filename = jQuery(this).val().split('\\').pop();
-            var idname = jQuery(this).attr('id');
-            console.log(jQuery(this));
-            console.log(filename);
-            console.log(idname);
-            jQuery('span.' + idname).next().find('span').html(filename);
-        });
-    </script>
-</body>
+    </form>
+</div>
+
+<script type="application/javascript">
+    jQuery('input[type=file]').change(function() {
+        var filename = jQuery(this).val().split('\\').pop();
+        var idname = jQuery(this).attr('id');
+        console.log(jQuery(this));
+        console.log(filename);
+        console.log(idname);
+        jQuery('span.' + idname).next().find('span').html(filename);
+    });
+</script>
