@@ -1,0 +1,77 @@
+.formulario {
+    margin-left: 150px;
+    margin-top: 30px;
+    margin-right: 150px;
+    margin-bottom: 60px;
+}
+
+.titulo {
+    text-align: center;
+    color: #4F4F4F;
+}
+
+.cuadro {
+    border-color: #125899;
+    border-radius: 0%;
+    text-align: center;
+}
+
+.datos {
+    padding: 50px;
+    padding-top: 20px;
+    color: #4f4f4f;
+    font-weight: 350;
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.lados {
+    text-align: center;
+    background-color: #E0E0E0;
+    padding: 20px;
+}
+
+.btn-azul {
+    background-color: #125899;
+    width: 160px;
+    height: 40px;
+    border-radius: 0%;
+    color: #ffffff;
+}
+
+.btn-azul-outline {
+    border-color: #125899;
+    width: 160px;
+    height: 40px;
+    border-radius: 0%;
+    color: #125899;
+    margin: 40px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.mi-archivo {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+label .mi-archivo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #106BA0;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+}
