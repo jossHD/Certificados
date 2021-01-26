@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
+import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-plantilla.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CardCertiComponent } from './components/shared/card-certi/card-certi.co
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    CardCertiComponent
+    CardCertiComponent,
+    CartPlantillaComponent
   ],
   imports: [
     BrowserModule,
