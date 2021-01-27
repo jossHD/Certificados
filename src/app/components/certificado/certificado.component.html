@@ -1,0 +1,65 @@
+<h3 class="text-center my-4">Nuevo Certificado "Taller UX"</h3>
+
+<div class="container py-4 px-5" style="background-color: white;">
+    <form>
+        <!-- 12 espacios -->
+        <div class="row">
+            <div class="col-12">
+                <div class="mb-4">
+                    <label for="inputNombre" class="form-label">Nombres:</label>
+                    <input type="text" class="form-control" id="inputNombre" >
+                </div>
+            </div>
+        </div>
+        <!-- 6 c/u espacios -->
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-4">
+                    <label for="inputTema" class="form-label">Tema:</label>
+                    <input type="text" class="form-control" id="inputTema">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-4">
+                    <label for="inputEncargado" class="form-label">Encargado:</label>
+                    <input type="password" class="form-control" id="inputEncargado">
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 esp rol | 3 esp fecha - 3 esp horas -->
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-4">
+                    <label for="inputRol" class="form-label">Rol:</label>
+                    <select class="form-select" id="inputRol">
+                        <option selected></option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                </div>
+            </div>
+            <!-- input-fecha -->
+            <div class="col-3">
+                <div class="mb-4">
+                    <label for="inputFecha" class="form-label">Fecha:</label>
+                    <input type="date" class="form-control" id="inputFecha">
+                </div>
+            </div>
+            <!-- input-horas -->
+            <div class="col-3">
+                <div class="mb-4">
+                    <label for="inputDuracion" class="form-label">Duración:</label>
+                    <input type="number" class="form-control" id="inputDuracion">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="d-flex flex-row-reverse">
+                <button class="btn-azul" type="submit">Crear</button>
+                <button class="btn-blanco" type="submit">Volver</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
