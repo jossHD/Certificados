@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+
+import { HomeComponent } from './components/home/home.component';
+import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
+import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-plantilla.component';
+
 import { CertificadoComponent } from './components/certificado/certificado.component';
 
 @NgModule({
@@ -12,7 +17,13 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     AppComponent,
     NavbarComponent,
     FooterComponent,
+
+    HomeComponent,
+    CardCertiComponent,
+    CartPlantillaComponent
+
     CertificadoComponent
+
   ],
   imports: [
     BrowserModule,
