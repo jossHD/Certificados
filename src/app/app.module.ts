@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { NuevaPlantillaComponent } from './components/nueva-plantilla/nueva-plantilla.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
@@ -17,6 +18,9 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     AppComponent,
     NavbarComponent,
     FooterComponent,
+
+    NuevaPlantillaComponent
+
 
     HomeComponent,
     CardCertiComponent,
