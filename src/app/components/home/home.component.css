@@ -1,0 +1,19 @@
+.derecha {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    border-radius: 0% !important;
+}
+
+.card-image {
+    background-color: #E0E0E0;
+    height: 140px;
+}
