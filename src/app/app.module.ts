@@ -6,11 +6,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NuevaPlantillaComponent } from './components/nueva-plantilla/nueva-plantilla.component';
-
 import { HomeComponent } from './components/home/home.component';
 import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
 import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-plantilla.component';
-
 import { CertificadoComponent } from './components/certificado/certificado.component';
 
 @NgModule({
@@ -18,14 +16,10 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     AppComponent,
     NavbarComponent,
     FooterComponent,
-
-    NuevaPlantillaComponent
-
-
+    NuevaPlantillaComponent,
     HomeComponent,
     CardCertiComponent,
-    CartPlantillaComponent
-
+    CartPlantillaComponent,
     CertificadoComponent
 
   ],

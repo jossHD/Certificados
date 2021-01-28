@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
     <div class="text-center m-3">
         <h2>Certificados Digitales</h2>
@@ -20,7 +21,7 @@
                     <div class="modal-content">
                         <div class="modal-body text-center">
                             <h4 class="modal-title " id="plantillaLabel">Seleccione una plantilla</h4>
-                            <div class="container p-3 text-center">
+                            <div class="p-3 text-center">
                                 <div class="row row-cols-1 row-cols-md-3 g-4">
                                     <div class="col">
                                         <div class="card">
@@ -33,7 +34,7 @@
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">Nueva Plantilla</h5>
 
-                                                <button type="button" class="btn btn-azul-outline">
+                                                <button type="button" class="btn btn-azul-outline" data-bs-dismiss="modal" routerLink="/nuevaPlantilla">
                                                             Crear
                                                  </button>
                                             </div>
@@ -57,7 +58,7 @@
         </div>
     </div>
     <div class="container p-3 text-center">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class=" row row-cols-1 row-cols-md-4 g-4 ">
             <!--Plantilla de cards-->
             <app-card-certi></app-card-certi>
             <app-card-certi></app-card-certi>
@@ -69,3 +70,5 @@
     </div>
 
 </div>
+
+<app-footer></app-footer>

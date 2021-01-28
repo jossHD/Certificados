@@ -79,6 +79,10 @@ label .mi-archivo {
     flex-direction: row-reverse;
 }
 
+.container {
+    margin-bottom: 100px;
+}
+
 @media screen and (max-width:900px) {
     .datos {
         padding-top: 20px;
