@@ -10,6 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
 import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-plantilla.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
