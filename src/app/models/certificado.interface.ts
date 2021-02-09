@@ -4,5 +4,6 @@ export interface CertificadoI{
     encargado:string,
     rol:string,
     fecha:Date,
-    duracion:number
+    duracion:number,
+    url?:string
 }

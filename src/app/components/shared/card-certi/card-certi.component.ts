@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CertificadoI } from './../../../models/certificado.interface';
+
 
 @Component({
   selector: 'app-card-certi',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-certi.component.css']
 })
 export class CardCertiComponent implements OnInit {
+
+  @Input()
+  certi:CertificadoI[];
 
   constructor() { }
 

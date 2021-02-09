@@ -118,6 +118,10 @@
               "devServerTarget": "certificados:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

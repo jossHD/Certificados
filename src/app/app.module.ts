@@ -12,6 +12,15 @@ import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-
 import { CertificadoComponent } from './components/certificado/certificado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { VerComponent } from './components/ver/ver.component';
+import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
+
+// firebase 
+import {AngularFirestoreModule} from '@angular/fire/firestore' ;
+import {AngularFireStorageModule, BUCKET } from '@angular/fire/storage' ;
+import {AngularFireModule} from '@angular/fire' ;
+import { environment } from './../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -22,16 +31,25 @@ import { MaterialModule } from './material.module';
     HomeComponent,
     CardCertiComponent,
     CartPlantillaComponent,
-    CertificadoComponent
+    CertificadoComponent,
+    VerComponent,
+    ToolbarComponent
 
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [
+    {provide: BUCKET, useValue: 'gs://certificadoapp-3bb25.appspot.com'}
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

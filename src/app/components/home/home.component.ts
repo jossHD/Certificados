@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CertificadoService } from './../../services/certificado.service';
+import { CertificadoI } from './../../models/certificado.interface';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  certificados:CertificadoI[] = [];
+
+  constructor(private certificadoService:CertificadoService) { }
 
   ngOnInit(): void {
+    this.certificadoService.getAllCerti().subscribe(data=>{
+      this.certificados = data;
+    });
   }
 
 }

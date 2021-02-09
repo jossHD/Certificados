@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-toolbar></app-toolbar>
 <div class="container">
     <div class="text-center m-3">
         <h2>Certificados Digitales</h2>
@@ -58,15 +58,8 @@
         </div>
     </div>
     <div class="container p-3 text-center">
-        <div class=" row row-cols-1 row-cols-md-4 g-4 ">
-            <!--Plantilla de cards-->
-            <app-card-certi></app-card-certi>
-            <app-card-certi></app-card-certi>
-            <app-card-certi></app-card-certi>
-            <app-card-certi></app-card-certi>
-            <app-card-certi></app-card-certi>
-        </div>
-
+        <!--Plantilla de cards-->
+        <app-card-certi [certi]=certificados></app-card-certi>
     </div>
 
 </div>
