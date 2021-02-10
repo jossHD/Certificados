@@ -57,11 +57,20 @@
             <!-- Modal Gianella a hasta de aqui -->
         </div>
     </div>
-    <div class="container p-3 text-center">
+    <div class="container mt-4 text-center">
         <!--Plantilla de cards-->
-        <app-card-certi [certi]=certificados></app-card-certi>
+        <app-card-certi *ngIf="certificados?.length; else loading" [certi]=certificados></app-card-certi>
+        
     </div>
-
+    
 </div>
 
-<app-footer></app-footer>
+<!-- Validamos si existe certificados, si existen que aparezca el footer -->
+<app-footer *ngIf="certificados?.length"></app-footer>
+
+<!-- Spinner Loading-->
+<ng-template #loading>
+    <div class="centrar">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

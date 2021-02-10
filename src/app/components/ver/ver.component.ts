@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CertificadoI } from 'src/app/models/certificado.interface';
+import { CertificadoService } from './../../services/certificado.service';
+
 
 @Component({
   selector: 'app-ver',
@@ -7,15 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VerComponent implements OnInit {
 
-  id:number;
+  certificado$:Observable<CertificadoI>;
 
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute,
+              private certificadoService:CertificadoService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      let id = params["id"];
-      this.id = id;
+      const id = params["id"];
+      this.certificado$ = this.certificadoService.getOneCertificado(id);
     })
+    
   }
 
 }

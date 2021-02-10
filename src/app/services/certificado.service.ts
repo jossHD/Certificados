@@ -27,4 +27,9 @@ export class CertificadoService {
             )
           );
   }
+
+  //Obtener un certificado por id 
+  public getOneCertificado(id:CertificadoI):Observable<CertificadoI>{
+    return this.afs.doc<CertificadoI>(`certificados/${id}`).valueChanges();
+  }
 }

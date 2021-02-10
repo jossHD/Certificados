@@ -1,4 +1,5 @@
 export interface CertificadoI{
+    id:string,
     nombres:string,
     tema:string,
     encargado:string,

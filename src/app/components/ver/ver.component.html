@@ -1,3 +1,5 @@
-<div class="container">
-    <h2>Certificado con id {{id}}</h2>
+<div class="mt-5 container" *ngIf="certificado$ | async as certi">
+    <h2>Nombres: {{certi.nombres}}</h2>
+    <h2>Tema: {{certi.tema}}</h2>
+    <h2>Url: {{certi.url}}</h2>
 </div>

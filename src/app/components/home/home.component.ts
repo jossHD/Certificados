@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.certificadoService.getAllCerti().subscribe(data=>{
-      this.certificados = data;
+      this.certificados = data; 
     });
   }
 

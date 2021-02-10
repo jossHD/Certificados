@@ -21,3 +21,11 @@
 .container {
     margin-bottom: 100px;
 }
+
+/* centrar el spinner */
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
