@@ -14,13 +14,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { VerComponent } from './components/ver/ver.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 // firebase 
 import {AngularFirestoreModule} from '@angular/fire/firestore' ;
 import {AngularFireStorageModule, BUCKET } from '@angular/fire/storage' ;
 import {AngularFireModule} from '@angular/fire' ;
 import { environment } from './../environments/environment';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
+//Formularios reactivos
+import { ReactiveFormsModule } from '@angular/forms';
+import { TableComponent } from './components/shared/table/table.component';  
 
 @NgModule({
   declarations: [
@@ -33,18 +38,22 @@ import { environment } from './../environments/environment';
     CartPlantillaComponent,
     CertificadoComponent,
     VerComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    LoginComponent,
+    TableComponent
 
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule
+
   ],
   providers: [
     {provide: BUCKET, useValue: 'gs://certificadoapp-3bb25.appspot.com'}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CertificadoI } from 'src/app/models/certificado.interface';
-import { CertificadoService } from './../../services/certificado.service';
+import { CertificadoService } from '../../services/certificado.service';
 
 
 @Component({
