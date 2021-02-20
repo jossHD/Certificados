@@ -11,6 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 const myModule =[
@@ -19,7 +20,7 @@ const myModule =[
   MatProgressSpinnerModule,
   MatCardModule,MatInputModule,
   MatTableModule,MatPaginatorModule,
-  MatSortModule
+  MatSortModule,MatDialogModule
 ]
 @NgModule({
   declarations: [],

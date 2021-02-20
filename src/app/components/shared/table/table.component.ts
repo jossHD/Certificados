@@ -5,35 +5,27 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+//CertificadoService
+import { CertificadoService } from './../../../services/certificado.service';
+import { CertificadoI } from './../../../models/certificado.interface';
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+//SweetAlert
+import Swal from 'sweetalert2';
+
+//Dialog
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit,AfterViewInit {
 
-  displayedColumns: string[] = ['position','name','weight','symbol','actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['nombres','tema','encargado','rol','fecha','duracion','actions'];
+  dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator,{static:true})
   paginator:MatPaginator
@@ -41,17 +33,67 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort,{static:true})
   sort: MatSort;
 
-  constructor() { }
+  constructor(private certiService:CertificadoService,
+              public dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.certiService.getAllCerti().subscribe(posts=>{
+      this.dataSource.data = posts;
+
+      console.log(posts);
+      
+      // Para convertir timestamp a date
+      /*var theDate = new Date(1612933200 * 1000);
+      var dateString = theDate.toDateString();
+      */
+    });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit():void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  //Nuevo certificado
+  newCertificado():void{
+    this.openDialog();
+  }
+
+  //Editar certificado
+  editCertificado(element:CertificadoI):void{
+    console.log('edit',element);
+  }
+
+  //Borrar certificado
+  deleteCertificado(element:CertificadoI):void{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(result=>{
+      console.log('resultado_promesa',result);
+      
+      if(result.value){
+        //Llamar al service para borrar
+        this.certiService.deleteCertificadoById(element)
+        .then(()=> Swal.fire('Éxitoso!','El registro fue borrado','success'))
+        .catch(e=>Swal.fire('Fatal!','El registro no se pudo borrar','warning'))
+      }
+    })
+  }
+
+  openDialog():void{
+    const dialogRef = this.dialog.open(DialogComponent);
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log(`Dialog result ${result}`);
+    })
   }
 }

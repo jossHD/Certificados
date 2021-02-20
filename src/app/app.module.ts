@@ -27,7 +27,9 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 
 //Formularios reactivos
 import { ReactiveFormsModule } from '@angular/forms';
-import { TableComponent } from './components/shared/table/table.component';  
+import { TableComponent } from './components/shared/table/table.component';
+import { DialogComponent } from './components/shared/dialog/dialog.component';
+import { NewCertificadoComponent } from './components/new-certificado/new-certificado.component';  
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { TableComponent } from './components/shared/table/table.component';
     VerComponent,
     ToolbarComponent,
     LoginComponent,
-    TableComponent
+    TableComponent,
+    DialogComponent,
+    NewCertificadoComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,6 @@ import { TableComponent } from './components/shared/table/table.component';
   ],
   providers: [
     {provide: BUCKET, useValue: 'gs://certificadoapp-3bb25.appspot.com'}
-    
   ],
   bootstrap: [AppComponent]
 })

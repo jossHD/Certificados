@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 //Firebase-firestore
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CertificadoI } from './../models/certificado.interface';
@@ -10,12 +10,16 @@ import { CertificadoI } from './../models/certificado.interface';
 })
 export class CertificadoService {
 
-  constructor(private afs:AngularFirestore) { }
+  private certificadosCollection:AngularFirestoreCollection<CertificadoI>
+
+  constructor(private afs:AngularFirestore) { 
+    this.certificadosCollection = afs.collection<CertificadoI>('certificados');
+  }
 
   //Obtener todos los certificados
   public getAllCerti():Observable<CertificadoI[]>{
 
-    return this.afs.collection('certificados')
+    return this.certificadosCollection
           .snapshotChanges()
           .pipe(
             map(actions=>
@@ -31,5 +35,15 @@ export class CertificadoService {
   //Obtener un certificado por id 
   public getOneCertificado(id:CertificadoI):Observable<CertificadoI>{
     return this.afs.doc<CertificadoI>(`certificados/${id}`).valueChanges();
+  }
+
+  //Borrar un certificado por su id
+  public deleteCertificadoById(certificado:CertificadoI):Promise<any>{
+    return this.certificadosCollection.doc(certificado.id).delete();
+  }
+
+  //Editar un certificado por su id
+  public editPostId(certificado:CertificadoI):Promise<any>{
+    return this.certificadosCollection.doc(certificado.id).update(certificado);
   }
 }
