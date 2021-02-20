@@ -56,16 +56,17 @@
             <!-- Modal Gianella a hasta de aqui -->
         </div>
     </div>
-    <div class="container mt-4 text-center">
+    <div class="mt-4">
+        <!-- agregar el container arriba, al costado del mt-4, el text-center estaba para centrar -->
         <!--Plantilla de cards-->
-        <app-card-certi *ngIf="certificados?.length; else loading" [certi]=certificados></app-card-certi>
-        
+        <!-- <app-card-certi *ngIf="certificados?.length; else loading" [certi]=certificados></app-card-certi> -->
+        <app-table></app-table>
     </div>
     
 </div>
 
 <!-- Validamos si existe certificados, si existen que aparezca el footer -->
-<app-footer *ngIf="certificados?.length"></app-footer>
+<!-- <app-footer *ngIf="certificados?.length"></app-footer> -->
 
 <!-- Spinner Loading-->
 <ng-template #loading>

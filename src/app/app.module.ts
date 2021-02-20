@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Routes
 import { AppRoutingModule } from './app-routing.module';
+//Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -16,7 +18,7 @@ import { VerComponent } from './components/ver/ver.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { LoginComponent } from './components/auth/login/login.component';
 
-// firebase 
+// Firebase
 import {AngularFirestoreModule} from '@angular/fire/firestore' ;
 import {AngularFireStorageModule, BUCKET } from '@angular/fire/storage' ;
 import {AngularFireModule} from '@angular/fire' ;
@@ -41,7 +43,6 @@ import { TableComponent } from './components/shared/table/table.component';
     ToolbarComponent,
     LoginComponent,
     TableComponent
-
   ],
   imports: [
     BrowserModule,
