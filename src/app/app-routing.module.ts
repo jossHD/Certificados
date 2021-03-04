@@ -8,12 +8,11 @@ import { VerComponent } from './components/ver/ver.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path: 'home', component: HomeComponent},
   {path: 'nuevaPlantilla',component: NuevaPlantillaComponent},
   {path:'nuevoCertificado',component: CertificadoComponent},
   {path:'ver/:id',component:VerComponent},
   {path:'login',component:LoginComponent},
-  {path:'**',pathMatch:'full',redirectTo:'home'}
+  {path:'**',pathMatch:'full',redirectTo:''}
 
 ];
 

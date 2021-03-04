@@ -9,7 +9,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NuevaPlantillaComponent } from './components/nueva-plantilla/nueva-plantilla.component';
 import { HomeComponent } from './components/home/home.component';
-import { CardCertiComponent } from './components/shared/card-certi/card-certi.component';
 import { CartPlantillaComponent } from './components/shared/cart-plantilla/cart-plantilla.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +28,9 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableComponent } from './components/shared/table/table.component';
 import { DialogComponent } from './components/shared/dialog/dialog.component';
-import { NewCertificadoComponent } from './components/new-certificado/new-certificado.component';  
+import { NewCertificadoComponent } from './components/new-certificado/new-certificado.component';
+import { NewPlantillaComponent } from './components/new-plantilla/new-plantilla.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import { NewCertificadoComponent } from './components/new-certificado/new-certif
     FooterComponent,
     NuevaPlantillaComponent,
     HomeComponent,
-    CardCertiComponent,
     CartPlantillaComponent,
     CertificadoComponent,
     VerComponent,
@@ -46,7 +46,8 @@ import { NewCertificadoComponent } from './components/new-certificado/new-certif
     LoginComponent,
     TableComponent,
     DialogComponent,
-    NewCertificadoComponent
+    NewCertificadoComponent,
+    NewPlantillaComponent
   ],
   imports: [
     BrowserModule,

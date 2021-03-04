@@ -24,7 +24,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class TableComponent implements OnInit,AfterViewInit {
 
-  displayedColumns: string[] = ['nombres','tema','encargado','rol','fecha','duracion','actions'];
+  displayedColumns: string[] = ['nombres','tema','encargado','rol','duracion','actions'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator,{static:true})
@@ -39,13 +39,6 @@ export class TableComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
     this.certiService.getAllCerti().subscribe(posts=>{
       this.dataSource.data = posts;
-
-      console.log(posts);
-      
-      // Para convertir timestamp a date
-      /*var theDate = new Date(1612933200 * 1000);
-      var dateString = theDate.toDateString();
-      */
     });
   }
 
@@ -90,6 +83,13 @@ export class TableComponent implements OnInit,AfterViewInit {
     })
   }
 
+   //Nuevo certificado
+   newPlantilla():void{
+    this.openDialog();
+  }
+
+
+  //Abrir dialog
   openDialog():void{
     const dialogRef = this.dialog.open(DialogComponent);
     dialogRef.afterClosed().subscribe(result=>{

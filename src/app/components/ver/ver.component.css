@@ -1,0 +1,9 @@
+iframe{
+    width: 730px;
+    height: 516px;
+    
+}
+.env_iframe{
+    display:flex;
+    justify-content:center;
+}

@@ -1,10 +1,11 @@
 export interface CertificadoI{
-    id:string,
+    id?:string,
     nombres:string,
     tema:string,
     encargado:string,
     rol:string,
-    fecha:Date,
+    fecha?:Date,
     duracion:number,
-    url?:string
+    url?:any,
+    fileRef?:any
 }
