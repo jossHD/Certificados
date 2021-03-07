@@ -5,8 +5,7 @@
     <span class="separador"></span>
 
     <button 
-      *ngIf="authService.userData | async" 
-      routerLink="/admin" 
+      *ngIf="authService.userData | async"
       mat-icon-button>
       <span>Admin</span>
     </button>
