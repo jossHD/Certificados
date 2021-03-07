@@ -20,7 +20,7 @@ export class VerComponent implements OnInit {
 
   urlCertificado:any;
 
-  private logo:string = "https://firebasestorage.googleapis.com/v0/b/certificadoapp-3bb25.appspot.com/o/image%2Flogo_ho_opt.jpg?alt=media&token=9b5bad90-fd5f-4d1b-9a81-8b5fbfe37132"
+  private logo:string = "https://firebasestorage.googleapis.com/v0/b/certificadoapp-3bb25.appspot.com/o/image%2Flogo_ho_opt.jpg?alt=media&token=d8ddc77d-6441-4af3-80ea-451e78624df5"
 
   constructor(private activatedRoute:ActivatedRoute,
               private certificadoService:CertificadoService,
@@ -30,8 +30,7 @@ export class VerComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       const id = params["id"];
       this.certificadoService.getOneCertificado(id).subscribe(certificado=>{
-        this.certificado = certificado;
-        this.generarPDF(this.certificado);
+        this.generarPDF(certificado);
       });
     });
   }
@@ -46,7 +45,7 @@ export class VerComponent implements OnInit {
     //pdf.pageMargins([100, 100]);
 
     //Background
-    pdf.background(await new Img(this.certificado?.url).build());
+    pdf.background(await new Img(certificado?.url).build());
 
     //header logo
     pdf.header(await new Img(this.logo).build());
@@ -60,14 +59,14 @@ export class VerComponent implements OnInit {
     // space
     pdf.add(new Txt('\n').end);
 
-    pdf.add(new Txt(this.certificado.nombres).fontSize(30).alignment('center').bold().end);
+    pdf.add(new Txt(certificado.nombres).fontSize(30).alignment('center').bold().end);
 
     // spaces
     pdf.add(new Txt('\n').end);
     pdf.add(new Txt('\n').end);
 
     //body
-    pdf.add(new Txt(`Por su participación como ${this.certificado.rol.toUpperCase()} en el workshop virtual de "${this.certificado.tema}" brindada por la instructor(a) ${this.certificado.encargado}.`).fontSize(20).alignment('center').end);
+    pdf.add(new Txt(`Por su participación como ${certificado.rol.toUpperCase()} en el workshop virtual de "${certificado.tema}" brindada por la instructor(a) ${certificado.encargado}.`).fontSize(20).alignment('center').end);
 
   // spaces
     pdf.add(new Txt('\n').end);
@@ -91,7 +90,6 @@ export class VerComponent implements OnInit {
 
     pdf.create().getDataUrl(dataUrl=>{
       this.urlCertificado = this.sanitizer.bypassSecurityTrustResourceUrl(dataUrl);
-      console.log(this.urlCertificado);
     });
   
   }

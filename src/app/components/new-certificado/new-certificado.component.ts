@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import { CertificadoI } from 'src/app/models/certificado.interface';
+import { FileI } from 'src/app/models/file.interface';
 import { CertificadoService } from 'src/app/services/certificado.service';
 
 
@@ -11,9 +12,12 @@ import { CertificadoService } from 'src/app/services/certificado.service';
 })
 export class NewCertificadoComponent implements OnInit {
 
-  private image:File;
+  private image:FileI;
 
   constructor(private certificadoService:CertificadoService) { }
+
+  ngOnInit(): void {
+  }
 
   public newCertificadoForm = new FormGroup({
     nombres: new FormControl('',Validators.required),
@@ -21,16 +25,15 @@ export class NewCertificadoComponent implements OnInit {
     encargado: new FormControl('',Validators.required),
     rol: new FormControl('',Validators.required),
     duracion: new FormControl('',Validators.required),
-    imagePlantilla: new FormControl('',Validators.required)
+    url: new FormControl('')
   })
-
-  ngOnInit(): void {
-  }
-
+  
   enviar(certificadoI:CertificadoI){
-    this.certificadoService.preAddAndUpdate(certificadoI,this.image);
-    console.log(certificadoI);
-    
+    if(this.image === undefined){
+      this.certificadoService.preAddAndUpdate(certificadoI);
+    }else{
+      this.certificadoService.preAddAndUpdate(certificadoI,this.image);
+    }
   }
 
   // Seleccionando la imagen

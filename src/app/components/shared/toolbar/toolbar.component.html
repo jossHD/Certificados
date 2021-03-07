@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <button routerLink="home" mat-icon-button>
+    <button routerLink="/" mat-icon-button>
       <mat-icon>home</mat-icon>
     </button>
     <span class="separador"></span>
@@ -13,7 +13,8 @@
 
     <!-- Boton logout -->
     <button 
-      (click)="logout()" 
+      (click)="logout()"
+      routerLink="login" 
       *ngIf="authService.userData | async;else login"    
       mat-icon-button>
       <mat-icon>logout</mat-icon>

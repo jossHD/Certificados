@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
-import { CertificadoComponent } from './components/certificado/certificado.component';
 import { HomeComponent } from './components/home/home.component';
-import { NuevaPlantillaComponent } from './components/nueva-plantilla/nueva-plantilla.component';
 import { VerComponent } from './components/ver/ver.component';
 
+//guard
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
-  {path:'',component:HomeComponent},
-  {path: 'nuevaPlantilla',component: NuevaPlantillaComponent},
-  {path:'nuevoCertificado',component: CertificadoComponent},
-  {path:'ver/:id',component:VerComponent},
+  {path:'',component:HomeComponent,canActivate:[AuthGuard]},
+  {path:'ver/:id',component:VerComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},
   {path:'**',pathMatch:'full',redirectTo:''}
 
@@ -18,6 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+ 
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

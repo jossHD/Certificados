@@ -12,7 +12,7 @@ export class DialogComponent implements OnInit {
 
   constructor(public dialog: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) 
-    public mensaje:string
+    public data:any
   ) { }
 
 

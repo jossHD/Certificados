@@ -1,5 +1,5 @@
 <div class="new-certificado-container">
-    <form [formGroup]="newCertificadoForm" (ngSubmit)="enviar(newCertificadoForm.value)">
+    <form [formGroup]="editPostForm" (ngSubmit)="edit(editPostForm.value)">
         <mat-form-field>
             <mat-label>Nombre</mat-label>
             <input matInput placeholder="Nombre" formControlName="nombres">

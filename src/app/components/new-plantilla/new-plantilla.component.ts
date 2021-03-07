@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
-import { PlantillaI } from 'src/app/models/plantilla.interface';
+import { FileI } from 'src/app/models/file.interface';
 import { CertificadoService } from 'src/app/services/certificado.service';
 
 
@@ -11,7 +11,7 @@ import { CertificadoService } from 'src/app/services/certificado.service';
 })
 export class NewPlantillaComponent implements OnInit {
 
-  private image:File;
+  private image:FileI;
 
   constructor(private certificadoService:CertificadoService) { }
 

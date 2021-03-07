@@ -58,7 +58,8 @@ export class TableComponent implements OnInit,AfterViewInit {
 
   //Editar certificado
   editCertificado(element:CertificadoI):void{
-    console.log('edit',element);
+    this.openDialog(element);
+    console.log(element);
   }
 
   //Borrar certificado
@@ -72,7 +73,6 @@ export class TableComponent implements OnInit,AfterViewInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, delete it!'
     }).then(result=>{
-      console.log('resultado_promesa',result);
       
       if(result.value){
         //Llamar al service para borrar
@@ -90,10 +90,17 @@ export class TableComponent implements OnInit,AfterViewInit {
 
 
   //Abrir dialog
-  openDialog():void{
-    const dialogRef = this.dialog.open(DialogComponent);
+  openDialog(certificado?:CertificadoI):void{
+    const config = {
+      data:{
+        message: certificado ? 'Edit Post':'New Post',
+        content: certificado
+      }
+    };
+
+    const dialogRef = this.dialog.open(DialogComponent,config);
     dialogRef.afterClosed().subscribe(result=>{
-      console.log(`Dialog result ${result}`);
+      
     })
   }
 }
