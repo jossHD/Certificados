@@ -3,11 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { CertificadoI } from 'src/app/models/certificado.interface';
 import { CertificadoService } from '../../services/certificado.service';
 
-// PDFMAKE
-import { PdfMakeWrapper,Txt,Img,Columns,QR} from 'pdfmake-wrapper';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts'; // fonts provided for pdfmake
 import { DomSanitizer } from '@angular/platform-browser';
-PdfMakeWrapper.setFonts(pdfFonts);
+import { PdfMakeWrapper,Txt,Img,Columns} from 'pdfmake-wrapper';
+import pdfFonts from 'src/assets/custom-fonts';
+
 
 @Component({
   selector: 'app-ver',
@@ -42,7 +41,7 @@ export class VerComponent implements OnInit {
     pdf.pageOrientation('landscape');
     pdf.pageSize('A4');
     
-    //pdf.pageMargins([100, 100]);
+    pdf.pageMargins([50, 70]);
 
     //Background
     pdf.background(await new Img(certificado?.url).build());
@@ -55,11 +54,11 @@ export class VerComponent implements OnInit {
     pdf.add(new Txt('CERTIFICADO').fontSize(40).alignment('center').bold().end);
     // space
     pdf.add(new Txt(' ').fontSize(30).alignment('center').italics().end);
-    pdf.add(new Txt('Otorgado a: ').fontSize(15).alignment('center').italics().end);
+    pdf.add(new Txt('Otorgado a:').fontSize(20).alignment('center').italics().end);
     // space
     pdf.add(new Txt('\n').end);
 
-    pdf.add(new Txt(certificado.nombres).fontSize(30).alignment('center').bold().end);
+    pdf.add(new Txt(certificado.nombres).font('greatvibes').fontSize(40).alignment('center').bold().end);
 
     // spaces
     pdf.add(new Txt('\n').end);
@@ -76,14 +75,14 @@ export class VerComponent implements OnInit {
     pdf.add(new Txt('\n').end);
     pdf.add(new Txt('\n').end);
 
-    pdf.add(new Columns(['______________________________________','______________________________________']).alignment('center').color('#01D56E').end);
+    pdf.add(new Columns(['________________________________________','________________________________________']).alignment('center').color('#135899').bold().end);
     pdf.add(new Txt('\n').end);
     pdf.add(
       new Columns(['José Manuel Antonio Pachas','Kattya Isabel García Velasquez'])
-      .alignment('center').end);
+      .fontSize(15).alignment('center').end);
     pdf.add(
       new Columns(['CEO DE CROWDEV','COO DE CROWDEV'])
-      .alignment('center').end);
+      .fontSize(13).alignment('center').end);
 
     //Abre el pdf en otra ventana
     //pdf.create().open();

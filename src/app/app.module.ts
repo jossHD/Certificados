@@ -30,6 +30,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
+//Configurando fuentes
+
+import { PdfMakeWrapper,Txt,Img,Columns} from 'pdfmake-wrapper';
+import pdfFonts from 'src/assets/custom-fonts';
+
+PdfMakeWrapper.setFonts(pdfFonts, {
+  roboto_: {
+    normal: 'Roboto-Light.ttf',
+    bold: 'Roboto-Bold.ttf',
+    italics: 'Roboto-Light.ttf',
+    bolditalics: 'Roboto-Light.ttf'
+  },
+  greatvibes: {
+      normal: 'GreatVibes-Regular.ttf',
+      bold: 'GreatVibes-Regular.ttf',
+      italics: 'GreatVibes-Regular.ttf',
+      bolditalics: 'GreatVibes-Regular.ttf'
+  }
+});
+PdfMakeWrapper.useFont('roboto_');
+
 @NgModule({
   declarations: [
     AppComponent,
