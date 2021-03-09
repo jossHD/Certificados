@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "certificadoapp-3bb25": {
+      "hosting": {
+        "certificados": [
+          "certificadoapp-3bb25"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "certificadoapp-3bb25"
+  }
+}

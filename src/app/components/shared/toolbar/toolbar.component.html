@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <button routerLink="/" mat-icon-button>
+      <mat-icon>home</mat-icon>
+    </button>
+    <span class="separador"></span>
+
+    <button 
+      *ngIf="authService.userData | async"
+      mat-icon-button>
+      <span>Admin</span>
+    </button>
+
+    <!-- Boton logout -->
+    <button 
+      (click)="logout()"
+      routerLink="login" 
+      *ngIf="authService.userData | async;else login"    
+      mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+
+    <!-- Boton login -->
+    <ng-template #login>
+      <button routerLink="login" mat-icon-button>
+        <mat-icon>login</mat-icon>
+      </button>
+    </ng-template>
+    
+</mat-toolbar>
+  
