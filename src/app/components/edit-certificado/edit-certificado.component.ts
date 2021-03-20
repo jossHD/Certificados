@@ -1,8 +1,10 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { CertificadoI } from 'src/app/models/certificado.interface';
 import { CertificadoService } from 'src/app/services/certificado.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-certificado',
@@ -17,7 +19,7 @@ export class EditCertificadoComponent implements OnInit {
   @Input()
   certificado:CertificadoI;
 
-  constructor(private certificadoService:CertificadoService) { }
+  constructor(private certificadoService:CertificadoService,  private dialogRef: MatDialogRef <EditCertificadoComponent>) { }
 
   ngOnInit(): void {
     this.image = this.certificado.url;
@@ -33,10 +35,20 @@ export class EditCertificadoComponent implements OnInit {
     encargado: new FormControl('',Validators.required),
     rol: new FormControl('',Validators.required),
     duracion: new FormControl('',Validators.required),
-    url: new FormControl('',Validators.required)
+    url: new FormControl('')
   });
 
   edit(certificado:CertificadoI){
+
+    if( this.editPostForm.invalid) {
+      Swal.fire({
+        allowOutsideClick: true,
+        icon: 'error',
+        title: 'Error',
+        text: 'Complete todos los datos'
+      });
+      return;
+    } 
 
     if(this.image === this.imageOriginal){
       certificado.url = this.imageOriginal;
@@ -45,10 +57,24 @@ export class EditCertificadoComponent implements OnInit {
       this.certificadoService.editCertificadoId(certificado,this.image);
     }
 
+    Swal.fire({
+      allowOutsideClick: true,
+      icon: 'success',
+      title: 'Exito',
+      text: 'Datos guardados correctamente'
+    });
+    this.dialogRef.close();
+
   }
 
   seleccionarImagen(event:any):void{
     this.image = event.target.files[0];
+    Swal.fire({
+      allowOutsideClick: true,
+      icon: 'success',
+      title: 'Exito',
+      text: 'Imagen cargada correctamente'
+    });
   }
 
   private cagarValores(){

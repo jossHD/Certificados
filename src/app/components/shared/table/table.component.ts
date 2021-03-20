@@ -65,13 +65,14 @@ export class TableComponent implements OnInit,AfterViewInit {
   //Borrar certificado
   deleteCertificado(element:CertificadoI):void{
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: '¿Estás seguro?',
+      text: "No podrás recuparar estos elementos",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, eliminar'
     }).then(result=>{
       
       if(result.value){
