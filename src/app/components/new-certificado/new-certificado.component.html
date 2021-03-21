@@ -2,23 +2,38 @@
     <form [formGroup]="newCertificadoForm" (ngSubmit)="enviar(newCertificadoForm.value)">
         <mat-form-field>
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre" formControlName="nombres">
+            <input matInput placeholder="Nombre" formControlName="nombres" required>
+            <mat-error *ngIf="isValidDatos('nombres')">
+                {{ getErrorNombres('nombres')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Tema</mat-label>
-            <input matInput placeholder="Tema" formControlName="tema">
+            <input matInput placeholder="Tema" formControlName="tema" required>
+            <mat-error *ngIf="isValidDatos('tema')">
+                {{ getErrorTema('tema')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Encargado</mat-label>
-            <input matInput placeholder="Encargado" formControlName="encargado">
+            <input matInput placeholder="Encargado" formControlName="encargado" required>
+            <mat-error *ngIf="isValidDatos('encargado')">
+                {{ getErrorEnacargado('encargado')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Rol</mat-label>
-            <input matInput placeholder="Rol" formControlName="rol">
+            <input matInput placeholder="Rol" formControlName="rol" required>
+            <mat-error *ngIf="isValidDatos('rol')">
+                {{ getErrorRol('rol')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Duracion</mat-label>
-            <input matInput placeholder="Rol" formControlName="duracion">
+            <input matInput placeholder="Duración" formControlName="duracion" required>
+            <mat-error *ngIf="isValidDatos('duracion')">
+                {{ getErrorDuracion('duracion')}}
+            </mat-error>
         </mat-form-field>
         <div class="container-input-file">
             <label class="custom-file">

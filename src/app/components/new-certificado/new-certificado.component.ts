@@ -21,13 +21,14 @@ export class NewCertificadoComponent implements OnInit {
   }
 
   public newCertificadoForm = new FormGroup({
-    nombres: new FormControl('',Validators.required),
-    tema: new FormControl('',Validators.required),
-    encargado: new FormControl('',Validators.required),
-    rol: new FormControl('',Validators.required),
-    duracion: new FormControl('',Validators.required),
+    nombres: new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/), Validators.maxLength(30)]),
+    tema: new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z0-9 ]+$/), Validators.maxLength(60)]),
+    encargado: new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/),Validators.maxLength(30)]),
+    rol: new FormControl('',[Validators.required,Validators.pattern(/^[a-zA-Z ]+$/),Validators.maxLength(20)]),
+    duracion: new FormControl('',[Validators.required,Validators.pattern(/^\d+$/),Validators.maxLength(2)]),
     url: new FormControl('')
   })
+
   
   enviar(certificadoI:CertificadoI){
     if( this.newCertificadoForm.invalid) {
@@ -68,5 +69,74 @@ export class NewCertificadoComponent implements OnInit {
       title: 'Exito',
       text: 'Imagen cargada correctamente'
     });
+  }
+
+
+
+  getErrorNombres(field: string): string {
+    let message;
+    if(this.newCertificadoForm.get(field).errors.required){
+      message = 'este campo es requerido.';
+    } else if (this.newCertificadoForm.get(field).hasError('pattern')){
+      message = 'solo se admiten letras mayúsculas, minúsculas.'
+    } else if ( this.newCertificadoForm.get(field).hasError('maxlength')){
+      message = 'solo se admiten 30 caracteres.'
+    }
+    return message;
+  }
+
+  getErrorTema(field: string): string {
+    let message;
+    if(this.newCertificadoForm.get(field).errors.required){
+      message = 'este campo es requerido.';
+    } else if (this.newCertificadoForm.get(field).hasError('pattern')){
+      message = 'solo se admiten letras mayúsculas, minúsculas, guiones y espacios.'
+    } else if ( this.newCertificadoForm.get(field).hasError('maxlength')){
+      message = 'solo se admiten 60 caracteres.'
+    }
+    return message;
+  }
+
+  getErrorEnacargado(field: string): string {
+    let message;
+    if(this.newCertificadoForm.get(field).errors.required){
+      message = 'este campo es requerido.';
+    } else if (this.newCertificadoForm.get(field).hasError('pattern')){
+      message = 'solo se admiten letras mayúsculas, minúsculas.'
+    } else if ( this.newCertificadoForm.get(field).hasError('maxlength')){
+      message = 'solo se admiten 30 caracteres.'
+    }
+    return message;
+  }
+
+  getErrorRol(field: string): string {
+    let message;
+    if(this.newCertificadoForm.get(field).errors.required){
+      message = 'este campo es requerido.';
+    } else if ( this.newCertificadoForm.get(field).hasError('pattern')){
+      message = 'Solo se admiten letras mayúsculas y minúsculas'
+    } else if ( this.newCertificadoForm.get(field).hasError('maxlength')){
+      message = 'solo se admiten 20 caracteres.'
+    }
+    return message;
+  }
+  getErrorDuracion(field: string): string {
+    let message;
+    if(this.newCertificadoForm.get(field).errors.required){
+      message = 'este campo es requerido.';
+    } else if ( this.newCertificadoForm.get(field).hasError('pattern')){
+      message = 'Solo se admiten números y dos puntos'
+    } else if ( this.newCertificadoForm.get(field).hasError('maxlength')){
+      message = 'solo se admiten 2 caracteres.'
+    }
+    return message;
+  }
+  
+
+  isValidDatos(field: string):boolean {
+    return (
+       ( this.newCertificadoForm.get(field).touched || this.newCertificadoForm.get(field).dirty)
+    && !this.newCertificadoForm.get(field).valid
+    );
   }
 }
