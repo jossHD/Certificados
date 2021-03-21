@@ -71,7 +71,29 @@ export class NewCertificadoComponent implements OnInit {
     });
   }
 
+// Only Integer Numbers
+  keyPressNumbers(event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
+  }
+  // Only AlphaNumeric
+  keyPressAlphaNumeric(event) {
 
+    var inp = String.fromCharCode(event.keyCode);
+
+    if (/[a-zA-Z]/.test(inp)) {
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+  }
 
   getErrorNombres(field: string): string {
     let message;

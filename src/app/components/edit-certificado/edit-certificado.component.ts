@@ -87,5 +87,94 @@ export class EditCertificadoComponent implements OnInit {
       duracion: this.certificado.duracion
     })
   }
+  
+// Only Integer Numbers
+keyPressNumbers(event) {
+  var charCode = (event.which) ? event.which : event.keyCode;
+  // Only Numbers 0-9
+  if ((charCode < 48 || charCode > 57)) {
+    event.preventDefault();
+    return false;
+  } else {
+    return true;
+  }
+}
+  // Only AlphaNumeric
+  keyPressAlphaNumeric(event) {
+
+    var inp = String.fromCharCode(event.keyCode);
+
+    if (/[a-zA-Z]/.test(inp)) {
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+  }
+
+getErrorNombres(field: string): string {
+  let message;
+  if(this.editPostForm.get(field).errors.required){
+    message = 'este campo es requerido.';
+  } else if (this.editPostForm.get(field).hasError('pattern')){
+    message = 'solo se admiten letras mayúsculas, minúsculas.'
+  } else if ( this.editPostForm.get(field).hasError('maxlength')){
+    message = 'solo se admiten 30 caracteres.'
+  }
+  return message;
+}
+
+getErrorTema(field: string): string {
+  let message;
+  if(this.editPostForm.get(field).errors.required){
+    message = 'este campo es requerido.';
+  } else if (this.editPostForm.get(field).hasError('pattern')){
+    message = 'solo se admiten letras mayúsculas, minúsculas, guiones y espacios.'
+  } else if ( this.editPostForm.get(field).hasError('maxlength')){
+    message = 'solo se admiten 60 caracteres.'
+  }
+  return message;
+}
+
+getErrorEnacargado(field: string): string {
+  let message;
+  if(this.editPostForm.get(field).errors.required){
+    message = 'este campo es requerido.';
+  } else if (this.editPostForm.get(field).hasError('pattern')){
+    message = 'solo se admiten letras mayúsculas, minúsculas.'
+  } else if ( this.editPostForm.get(field).hasError('maxlength')){
+    message = 'solo se admiten 30 caracteres.'
+  }
+  return message;
+}
+
+getErrorRol(field: string): string {
+  let message;
+  if(this.editPostForm.get(field).errors.required){
+    message = 'este campo es requerido.';
+  } else if ( this.editPostForm.get(field).hasError('pattern')){
+    message = 'Solo se admiten letras mayúsculas y minúsculas'
+  } else if ( this.editPostForm.get(field).hasError('maxlength')){
+    message = 'solo se admiten 20 caracteres.'
+  }
+  return message;
+}
+getErrorDuracion(field: string): string {
+  let message;
+  if(this.editPostForm.get(field).errors.required){
+    message = 'este campo es requerido.';
+  } else if ( this.editPostForm.get(field).hasError('pattern')){
+    message = 'Solo se admiten números y dos puntos'
+  } else if ( this.editPostForm.get(field).hasError('maxlength')){
+    message = 'solo se admiten 2 caracteres.'
+  }
+  return message;
+}
+  isValidDatos(field: string):boolean {
+    return (
+       ( this.editPostForm.get(field).touched || this.editPostForm.get(field).dirty)
+    && !this.editPostForm.get(field).valid
+    );
+  }
 
 }
