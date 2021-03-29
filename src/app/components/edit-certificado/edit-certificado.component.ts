@@ -104,7 +104,7 @@ keyPressNumbers(event) {
 
     var inp = String.fromCharCode(event.keyCode);
 
-    if (/[a-zA-Z]/.test(inp)) {
+    if (/[a-zA-Z ]/.test(inp)) {
       return true;
     } else {
       event.preventDefault();
