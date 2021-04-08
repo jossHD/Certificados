@@ -93,7 +93,7 @@ export class TableComponent implements OnInit,AfterViewInit {
   openDialog(certificado?:CertificadoI):void{
     const config = {
       data:{
-        message: certificado ? 'Edit Post':'New Post',
+        message: certificado ? 'Ëditar Certificado':'Nuevo Certificado',
         content: certificado
       }
     };
