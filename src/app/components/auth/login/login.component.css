@@ -1,15 +1,23 @@
-:host {
-     display: flex;
-     justify-content: center;
-     margin: 100px 0;
-     background: yellow !important;
-}
-
-mat-form-field{
-     width: 100% !important;
-     min-width: 300px !important;
-}
-
-button{
-     width: 100%;
-}
+                                              :host {
+                                                 display: flex;
+                                                 justify-content: center;
+                                                 background-image: url("src/assets/login.jpg");
+                                                 background-size: cover;
+                                             }
+                                             
+                                             mat-form-field {
+                                                 height: 80px;
+                                                 width: 350px;
+                                             }
+                                             
+                                             button {
+                                                 width: 100%;
+                                                 border-radius: 0%;
+                                             }
+                                             
+                                             mat-card {
+                                                 background-color: white;
+                                                 border-radius: 0%;
+                                                 padding: 30px;
+                                                 margin: 130px;
+                                             }

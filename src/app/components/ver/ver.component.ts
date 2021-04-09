@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CertificadoI } from 'src/app/models/certificado.interface';
 import { CertificadoService } from '../../services/certificado.service';
+import Swal from 'sweetalert2';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { PdfMakeWrapper,Txt,Img,Columns} from 'pdfmake-wrapper';
@@ -26,6 +27,13 @@ export class VerComponent implements OnInit {
               private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
+    Swal.fire({
+      allowOutsideClick: false,
+      icon: 'info',
+      text: 'Generando Certificado'
+    });
+
+    Swal.showLoading();
     this.activatedRoute.params.subscribe(params=>{
       const id = params["id"];
       this.certificadoService.getOneCertificado(id).subscribe(certificado=>{
@@ -89,6 +97,7 @@ export class VerComponent implements OnInit {
 
     pdf.create().getDataUrl(dataUrl=>{
       this.urlCertificado = this.sanitizer.bypassSecurityTrustResourceUrl(dataUrl);
+      Swal.close();
     });
   
   }

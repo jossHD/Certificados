@@ -2,23 +2,38 @@
     <form [formGroup]="editPostForm" (ngSubmit)="edit(editPostForm.value)">
         <mat-form-field>
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre" formControlName="nombres">
+            <input matInput placeholder="Nombre" (keypress)="keyPressAlphaNumeric($event)" formControlName="nombres">
+            <mat-error *ngIf="isValidDatos('nombres')">
+                {{ getErrorNombres('nombres')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Tema</mat-label>
-            <input matInput placeholder="Tema" formControlName="tema">
+            <input matInput placeholder="Tema" (keypress)="keyPressAlphaNumeric($event)" formControlName="tema">
+            <mat-error *ngIf="isValidDatos('tema')">
+                {{ getErrorTema('tema')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Encargado</mat-label>
-            <input matInput placeholder="Encargado" formControlName="encargado">
+            <input matInput placeholder="Encargado" (keypress)="keyPressAlphaNumeric($event)" formControlName="encargado">
+            <mat-error *ngIf="isValidDatos('encargado')">
+                {{ getErrorEnacargado('encargado')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Rol</mat-label>
-            <input matInput placeholder="Rol" formControlName="rol">
+            <input matInput placeholder="Rol" (keypress)="keyPressAlphaNumeric($event)" formControlName="rol">
+            <mat-error *ngIf="isValidDatos('rol')">
+                {{ getErrorRol('rol')}}
+            </mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Duracion</mat-label>
-            <input matInput placeholder="Rol" formControlName="duracion">
+            <input matInput placeholder="Rol" (keypress)="keyPressNumbers($event)" formControlName="duracion">
+            <mat-error *ngIf="isValidDatos('duracion')">
+                {{ getErrorDuracion('duracion')}}
+            </mat-error>
         </mat-form-field>
         <div class="container-input-file">
             <label class="custom-file">
@@ -27,7 +42,7 @@
             </label>
         </div>
         <div class="container-button">
-            <input type="submit" class="mat-flat-button" value="Guardar" [mat-dialog-close]="false">
+            <input type="submit" class="mat-flat-button" value="Guardar">
         </div>
     </form>
 </div>
