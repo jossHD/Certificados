@@ -1,14 +1,10 @@
 <mat-form-field>
-  <input
-    matInput
-    (keyup)="applyFilter($event.target.value)"
-    placeholder="Filter"
-  />
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar" />
 </mat-form-field>
 
 <div class="container-btn-new">
-  <button color="primary" (click)="newCertificado()" mat-raised-button >
-    <mat-icon>note_add</mat-icon>&nbsp; New Certificado
+  <button color="primary" (click)="newCertificado()" mat-raised-button>
+    <mat-icon>note_add</mat-icon>&nbsp; Nuevo Certificado
   </button>
   &nbsp;
   <!-- <button color="primary" (click)="newPlantilla()" mat-raised-button >
@@ -69,7 +65,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<mat-paginator
-  [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
 </mat-paginator>
